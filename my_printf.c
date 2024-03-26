@@ -98,21 +98,20 @@ int _printf(const char *format, ...)
 	int count = 0;
 
 	va_start(ap, format);
-	while (*format != '\0')
-	{
-		if (*format == '%')
-      {
-		   count += print_format(*(++format), ap);
-      }
-		else
-      {
-		   _putchar(*format);
-		   count++;
-	   }
-      ++format;
-}
-	va_end(ap);
-	return (count);
+    while (*format != '\0')
+    {
+        if (*format == '%')
+        {
+            count += print_format(*(++format), ap);
+        }
+        else
+        {
+            _putchar(*format);
+            count++;
+        }
+    }
+    va_end(ap);
+    return (count);
 }
 /**
  * main_counter - Test function for _printf
