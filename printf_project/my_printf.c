@@ -52,12 +52,12 @@ else
 }
 /**
  * print_format - Prints formatted output
- * @specifier: The format specifier ('c', 's', 'd', 'x')
+ * @specifier: The format specifier ('c', 's', 'd', 'x' 'i')
  * @ap: Variable argument list
  *
  * Return: Number of characters printed
  */
-int print_format(char specifier, va_list ap)
+int print_format(char specifier, va_list *ap)
 {
 	int count = 0;
 
