@@ -57,7 +57,7 @@ else
  *
  * Return: Number of characters printed
  */
-int print_format(char specifier, va_list ap)
+int print_format(char specifier, va_list *ap)
 {
 	int count = 0;
 

@@ -82,21 +82,3 @@ The sum of 99 and 1 is 100
 
 ___________________________________________________________________________________________________________________________________________________
 
-
-
-To test the _printf function, you can use test files or assertions in your code.
-
-Ex.:
-
-```mermaid
-sequenceDiagram
-    participant dotcom
-    participant iframe
-    participant viewscreen
-    dotcom->>iframe: loads html w/ iframe url
-    iframe->>viewscreen: request template
-    viewscreen->>iframe: html & javascript
-    iframe->>dotcom: iframe ready
-    dotcom->>iframe: set mermaid data on iframe
-    iframe->>iframe: render mermaid
-```
