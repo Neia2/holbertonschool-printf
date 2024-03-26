@@ -52,12 +52,12 @@ else
 }
 /**
  * print_format - Prints formatted output
- * @specifier: The format specifier ('c', 's', 'd', 'x' 'i')
+ * @specifier: The format specifier ('c', 's', 'd', 'x')
  * @ap: Variable argument list
  *
  * Return: Number of characters printed
  */
-int print_format(char specifier, va_list *ap)
+int print_format(char specifier, va_list ap)
 {
 	int count = 0;
 
@@ -65,12 +65,10 @@ int print_format(char specifier, va_list *ap)
 		count = _putchar(va_arg(ap, int));
 		else if (specifier == 's')
 		count += print_str(va_arg(ap, char *));
-		else if (specifier == 'd')
-		count += print_digit((long)va_arg(ap, int), 10);
-		else if (specifier == 'i')
+		else if (specifier == 'd' || 'i')
 		count += print_digit((long)va_arg(ap, int), 10);
 		else if (specifier == 'x')
-		count += print_digit((long)va_arg(ap, unsigned int), 16);
+		count +=  print_digit((long)(va_arg(ap, unsigned int)), 16);
 		else
 		count += write(1, &specifier, 1);
 		return (count);
@@ -92,15 +90,10 @@ int _printf(const char *format, ...)
 	while (*format != '\0')
 	{
 		if (*format == '%')
-		{
-		count += print_format(*(++format), &ap);
-		format++;
-		}
+		count += print_format(*(++format), ap);
 		else
-		{
 		count += write(1, format, 1);
 		++format;
-		}
 	}
 	va_end(ap);
 	return (count);
