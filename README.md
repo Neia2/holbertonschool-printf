@@ -83,7 +83,8 @@ The sum of 99 and 1 is 100
 ___________________________________________________________________________________________________________________________________________________
 
 # Flowchart
-C:\Users\Soso\OneDrive\Bureau\flowchart.png
+![image](https://github.com/Neia2/holbertonschool-printf/assets/159029152/bd4035c1-eee9-4bdd-b577-78914834d8e7)
+
 
 
 
