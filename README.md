@@ -82,4 +82,6 @@ The sum of 99 and 1 is 100
 
 ___________________________________________________________________________________________________________________________________________________
 
-![Flowchart Explanation](https://cdn.discordapp.com/attachments/1216497227732877403/1223239602425430048/Blank_diagram.png?ex=661921a7&is=6606aca7&hm=999565f4567705e364141d7e302762c1727e4bbc66ba55c3437ff30b8ef22e7d&)
+# Flowchart
+
+![Logo](https://cdn.discordapp.com/attachments/1216497227732877403/1223239602425430048/Blank_diagram.png?ex=661921a7&is=6606aca7&hm=999565f4567705e364141d7e302762c1727e4bbc66ba55c3437ff30b8ef22e7d&)
