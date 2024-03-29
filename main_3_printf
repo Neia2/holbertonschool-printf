@@ -1,0 +1,174 @@
+.\"" Manpage for COMMON PROJECT PRINTF
+.SH NAME Sirs Sofiane ARFANE & Gwenael BAJULAZ and Madam Néia Santos Nascimento,
+associated publishers, Copyright MMXXIII
+
+.SH L I B R A R Y    M A N 
+
+for  P  R  I  N  T  F
+
+
+
+
+.TH Published on 29.03.2024
+
+---------------------------------------------------------------------------------------------------
+.SH NAME: PRINTF  /  LIBRARY: Standard C Library
+---------------------------------------------------------------------------------------------------
+
+.SH SYNOPSIS
+=======
+COMMON PROJECT PRINTF / Sirs Sofiane ARFANE & Gwenael BAJULAZ and Madam Néia Santos Nascimento associated publishers, Copyright MMXXIII
+
+L I B R A R Y   M A N 
+for  P  R  I  N  T  F
+
+
+Published on 29.03.2024
+
+---------------------------------------------------------------------------------------------------
+NAME: PRINTF  /  LIBRARY: Standard C Library
+---------------------------------------------------------------------------------------------------
+
+SYNOPSIS
+>>>>>>> (man_3_printf)
+
+#include <stdio.h>
+
+int printf(const char *format,...);
+int fprintf (FILE +stream, const char *format,...);
+int sprintf (char *str, const char *format, ...);
+int snprintf (char *str, size_t size, const char +format, ...);
+
+#inlcude <stdarg.h>
+
+int vprintf (const char *format, va_list ap);
+int vfprintf(FILE *stream, const char *format, va_list ap);
+int vsnprintf (char *str, size8t size, const char *format, va_list ap)
+
+---------------------------------------------------------------------------------------------------
+.SH DESCRIPTION
+=======
+DESCRIPTION
+
+The functions in the printf() produce output according to a format as descrbed below.
+The functions printf() write output to stdout, the standart output stream.
+
+All of these functions write the output under the control of a format string that specifies how subsequent arguments (or arguments accessed via the variable-length argument facilities of stdarg(3)) are converted for output.
+
+The format string is a character string, beginning and ending in its initial shift state, if any.
+The format string is composed of zero or more directives: ordinary characters (not %), which are copied unchanged to the output stream; and conversion specifications, each of which results in fetching zero or more subsequent arguments.
+Each conversation specification is introduced by the character %, and ends with a conversion specifier.
+In between there may be, in this order, zero or more flags, an optional minimum field width, an optional precision and an optional length modifier.
+
+For c
+If no l modifier is present, the int aurgument is converted to an unsigned char, and the resulting character is written. If an l midifier is present, the wint_t (wide character) argument is converted to a multibyte sequence by a call to the wcrtomb (3) function for exemple, with a conversion state starting in the initial state, and the resuting multibyte string is written.
+
+For s
+If no l modifier is present: the const char * argument is expected to be a pointer to an array of character type (pointer to a string). Characters from the array are writtent up to, but not including, a terminating null byte ('\0'); if a precision is specified, no more than the number specified are written. If the precision is not specified, or is greater than the size of the array, the array must contain a terminating nulle byte.
+
+For %
+A '%' is written. No argument is converted. The complete conversion specification is '%%'.
+
+=======
+For d and i 
+The int argument is converted to signed decimal notations. The precision, if any, gives the minimum number of digits thhat must appear; if the converted value requires fewer digits.
+it is padded on the left with zeros. The defaut precision is 1. When 0 is printed with an explicit precision 0, the output is empty.
+
+
+------------------------------------------------------------------------------------------------------
+.SH RETURN VALUE 
+=======
+=======
+------------------------------------------------------------------------------------------------------
+RETURN VALUE 
+>>>>>>> (man_3_printf)
+Upon successful return, these functions return the number of characters printed, excluding the null byte used to end output to strings.
+The functions printf(percentage) and vsnprintf() for exemples do not write more thhan size bytes, including the terminating null byte ('\0').
+If the output was truncated due ti this limit, then the return value is the number of characters, excluding the termating null byte, which would have been written to the finalstring if enough space had been available.
+Thus, a return value of size or more means that the output was truncated.
+If an output error is encountered, an negative value is returned.
+
+.SH ATTRIBUTES 
+For an explanation of the terms used in this section 
+
+
+.SH Interface
+printf(), fprintf(), sprintf(), snprintf(), vprintf(), vfprintf(), vsprintf(), vsnprintf()
+.SH Attribute
+Thread safety
+.SH Value 
+Mt-safe locale
+
+
+.SH STANDARDS
+=======
+ATTRIBUTES 
+For an explanation of the terms used in this section 
+
+Interface                   Attribute           Value 
+
+printf(), fprintf(),        Thread safety       Mt-safe locale
+sprintf(), snprintf(),
+vprintf(), vfprintf(),
+vsprintf(), vsnprintf()  
+
+STANDARDS
+
+fprintf()
+printf()
+sprintf()
+vprintf()
+vsprintf()
+snprint()
+vsnprintf()
+
+.SH HISTORY
+=======
+HISTORY
+
+fprintf()
+printf()
+sprintf()
+vprintf()
+vsprintf()
+snprint()
+vsnprintf()
+    C89, POSIX.1-2001.
+snprint()
+vsnprintf() 
+    SUSv2, C99, POSIX.1-2001.
+
+Notes about ISO Standard references: 
+C89 / This was the first C language standard, ratified by ANSI(American National Standards Institute) in 1989 (X3.159-1989).
+Sometimes this is known as ANSI C, but since C99 is also an ANSI standard, this term is ambiguous.
+This standard was also ratified by ISO (International Standards Organization) in 1990 (ISO/IEC 9899:1990), and is thus occasionally referred to as ISO C90.
+C99 / This revision of the C language standard was ratified by ISO in 1999 (ISO/IEC 9899:1999).
+SUSv2 / Single UNIX Specification version 2. Sometimes also referred to as XPG5 incorrecly. 
+This standard appeared in 1997. Systems conforming to this standard can be branded UNIX 98.
+POSIX.1-2001 / This was a 2001 revision and consolidation ot the POSIX.1, POSIX.2 and SUS standards into a single document.
+The POSIX.1-2001 document can be branded UNIX 03.
+
+----------------------------------------------------------------------------------------------------------
+.SH CAVEATS
+
+To apend text tu buf. However, the standards explicity note that the results are indefined if source and destinations buffers averlap when calling sprintf(), snprintf(), vsprintf(), and vsnprintf(). Depending on the version of ggc used, and the compiler options employed, calls such as the above will not produce the expected results.
+
+The glibc implementation of the functions snprintf() and vsnprintf() conforms to the C99 standard, that is, behaves as described above, since glibc 2.1. Until glibc 2.0.6, they would return -1 when the output was truncated.
+
+BUGS
+
+Because sprintf() and vsprintf() assume an arbitrarily long string, callers must be careful, not to overflow rhe actual space; this is often impossible to assure. Not that the lenght of the strings produced is locale-dependent and difficult to predict. Use snprintf() and vsnprintf() instead of asprintf(3) and vasprintf(3).
+
+Code suche a printf(foo); often indicates a bug, sunce foo may contain a % character. If foo comes from untrusted user input, it may contain %n, causing the printf()( call to write to memory and creating a security hole.
+
+EXAMPLES
+
+=======
+CAVEATS
+
+=======
+
+_________________________________________________________________________________________________________________________
+Linux man pages / PRINTF / 2024.03.29 / HH/PhM
+______________________________________________________________________________________________________________________________
+=======
