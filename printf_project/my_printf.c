@@ -57,7 +57,7 @@ else
  *
  * Return: Number of characters printed
  */
-int print_format(char specifier, va_list ap)
+int print_format(char specifier, va_list *ap)
 {
 	int count = 0;
 
@@ -66,6 +66,8 @@ int print_format(char specifier, va_list ap)
 		else if (specifier == 's')
 		count += print_str(va_arg(ap, char *));
 		else if (specifier == 'd')
+		count += print_digit((long)va_arg(ap, int), 10);
+		else if (specifier == 'i')
 		count += print_digit((long)va_arg(ap, int), 10);
 		else if (specifier == 'x')
 		count +=  print_digit((long)(va_arg(ap, unsigned int)), 16);
@@ -90,6 +92,8 @@ int _printf(const char *format, ...)
 	while (*format != '\0')
 	{
 		if (*format == '%')
+		count += print_format(*(++format), ap);
+		if (*format == 0)
 		count += print_format(*(++format), ap);
 		else
 		count += write(1, format, 1);
