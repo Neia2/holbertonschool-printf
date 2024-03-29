@@ -83,5 +83,6 @@ The sum of 99 and 1 is 100
 ___________________________________________________________________________________________________________________________________________________
 
 # Flowchart
-![flowchart](https://github.com/Neia2/holbertonschool-printf/assets/159029152/e06b716d-8129-4803-be3e-be762c18de2e)
+![flowchart](https://github.com/Neia2/holbertonschool-printf/assets/159029152/c387f1a9-cc97-4ff3-87b1-517e7c9beed8)
+
 
